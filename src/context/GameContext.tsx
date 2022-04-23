@@ -1,12 +1,17 @@
 import { createContext, useContext, useState } from "react";
+import { initialGame } from "./initialGame";
 
-const initialContext: Game = {
-  user: { name: "Player", castleHitPoints: 50, fenceHitPoints: 15 },
-  computer: { name: "Computer", castleHitPoints: 50, fenceHitPoints: 15 },
+type GameContextType = {
+  game: Game;
+  updatePlayerName: (newName: string) => void;
 };
 
-type Game = {
-  user: Player;
+type GameContextProviderProps = {
+  children: React.ReactNode;
+};
+
+export type Game = {
+  player: Player;
   computer: Player;
 };
 
@@ -16,18 +21,18 @@ type Player = {
   fenceHitPoints: number;
 };
 
-const GameContext = createContext<any>(null);
+const GameContext = createContext<GameContextType>({} as GameContextType);
 
 export const useGame = () => {
   return useContext(GameContext);
 };
 
-const PlayerNameProvider: React.FC = ({ children }) => {
-  const [game, setGame] = useState<Game>(initialContext);
+const PlayerNameProvider = ({ children }: GameContextProviderProps) => {
+  const [game, setGame] = useState<Game>(initialGame);
 
   const updatePlayerName = (newName: string) => {
     setGame((prevGame) => {
-      return { ...prevGame, user: { ...prevGame.user, name: newName } };
+      return { ...prevGame, user: { ...prevGame.player, name: newName } };
     });
   };
 
