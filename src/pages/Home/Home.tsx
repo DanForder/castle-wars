@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout";
 export const Home = () => {
   return (
     <Layout>
-      <h1>Page Heading</h1>
+      <h1>Castle Wars</h1>
     </Layout>
   );
 };
