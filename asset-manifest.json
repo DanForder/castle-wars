@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/castle-wars/static/css/main.ee3062da.css",
-    "main.js": "/castle-wars/static/js/main.4d8fada8.js",
+    "main.css": "/castle-wars/static/css/main.c650fba3.css",
+    "main.js": "/castle-wars/static/js/main.13ccfbff.js",
     "static/js/787.edaec025.chunk.js": "/castle-wars/static/js/787.edaec025.chunk.js",
+    "static/media/cloud.png": "/castle-wars/static/media/cloud.3ba1ff4cf78d0bd308f9.png",
     "index.html": "/castle-wars/index.html",
-    "main.ee3062da.css.map": "/castle-wars/static/css/main.ee3062da.css.map",
-    "main.4d8fada8.js.map": "/castle-wars/static/js/main.4d8fada8.js.map",
+    "main.c650fba3.css.map": "/castle-wars/static/css/main.c650fba3.css.map",
+    "main.13ccfbff.js.map": "/castle-wars/static/js/main.13ccfbff.js.map",
     "787.edaec025.chunk.js.map": "/castle-wars/static/js/787.edaec025.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee3062da.css",
-    "static/js/main.4d8fada8.js"
+    "static/css/main.c650fba3.css",
+    "static/js/main.13ccfbff.js"
   ]
 }
