@@ -1,11 +1,11 @@
+import GameFrame from "../../components/GameFrame/GameFrame";
 import GameScreen from "../../components/GameScreen/GameScreen";
-import Layout from "../../components/Layout/Layout";
 
 export const Home = () => {
   return (
-    <Layout>
+    <GameFrame>
       <GameScreen />
-    </Layout>
+    </GameFrame>
   );
 };
 
