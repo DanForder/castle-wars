@@ -1,0 +1,13 @@
+@use "../../styles/animations" as *;
+
+.cloud-overlay {
+  height: 100%;
+
+  .cloud-overlay__cloud {
+    width: 10%;
+    max-width: 120px;
+    position: absolute;
+    @include animate-across;
+    transform: translate(0, 250%);
+  }
+}

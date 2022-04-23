@@ -4,8 +4,6 @@
   min-height: 100vh;
   width: 100vw;
   background-color: $color-background;
-
-  &__main {
-    padding: 1rem;
-  }
+  display: flex;
+  flex-direction: column;
 }
