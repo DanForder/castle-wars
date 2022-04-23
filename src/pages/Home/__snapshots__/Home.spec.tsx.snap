@@ -3,15 +3,27 @@
 exports[`Home Page Renders 1`] = `
 <div>
   <div
-    class="layout"
+    class="game-frame"
   >
-    <main
-      class="layout__main"
+    <h1
+      class="game-frame__heading"
     >
-      <h1>
-        Page Heading
-      </h1>
-    </main>
+      Castle Wars
+    </h1>
+    <div
+      class="game-screen"
+    >
+      <div
+        class="game-screen__play-area"
+      >
+        <div
+          class="cloud-overlay"
+        />
+      </div>
+      <div
+        class="game-screen__card-area"
+      />
+    </div>
   </div>
 </div>
 `;

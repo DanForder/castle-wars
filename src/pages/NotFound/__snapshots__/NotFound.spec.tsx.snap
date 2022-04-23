@@ -1,22 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotFoundView Renders 1`] = `
+exports[`NotFound Page Renders 1`] = `
 <div>
-  <div
-    class="layout"
+  <h1
+    style="color: rgb(37, 37, 42);"
   >
-    <main
-      class="layout__main"
-    >
-      <h1>
-        Page Not Found!
-      </h1>
-      <a
-        href="/"
-      >
-        Home
-      </a>
-    </main>
-  </div>
+    Page Not Found!
+  </h1>
+  <a
+    href="/"
+    style="color: rgb(50, 50, 206);"
+  >
+    Home
+  </a>
 </div>
 `;
