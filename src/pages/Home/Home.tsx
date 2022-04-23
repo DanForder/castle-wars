@@ -1,10 +1,11 @@
-import Layout from "../../components/Layout/Layout";
+import GameFrame from "../../components/GameFrame/GameFrame";
+import GameScreen from "../../components/GameScreen/GameScreen";
 
 export const Home = () => {
   return (
-    <Layout>
-      <h1>Castle Wars Clone</h1>
-    </Layout>
+    <GameFrame>
+      <GameScreen />
+    </GameFrame>
   );
 };
 

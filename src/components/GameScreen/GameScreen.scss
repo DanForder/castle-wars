@@ -1,0 +1,22 @@
+@use "../../styles/variables" as *;
+
+.game-screen {
+  background-color: $color-sky;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5fr 2fr;
+
+  .game-screen__play-area {
+    position: relative;
+  }
+
+  .game-screen__card-area {
+    background: linear-gradient(
+      0deg,
+      $color-ground-tint-1 0%,
+      $color-ground-tint-2 100%
+    );
+    border-top: solid 5px $color-ground-tint-1;
+  }
+}
