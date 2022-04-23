@@ -9,9 +9,7 @@ exports[`NotFoundView Renders 1`] = `
       class="layout__main"
     >
       <h1>
-        Error 
-        404
-         - Not Found!
+        Page Not Found!
       </h1>
       <a
         href="/"

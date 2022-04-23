@@ -16,40 +16,6 @@ exports[`Layout Renders with children 1`] = `
 </div>
 `;
 
-exports[`Layout Renders with exampleProp enabled, children 1`] = `
-<div>
-  <div
-    class="layout"
-  >
-    <span>
-      exampleProp is true
-    </span>
-    <main
-      class="layout__main"
-    >
-      <span>
-        Child element
-      </span>
-    </main>
-  </div>
-</div>
-`;
-
-exports[`Layout Renders with exampleProp enabled, no children 1`] = `
-<div>
-  <div
-    class="layout"
-  >
-    <span>
-      exampleProp is true
-    </span>
-    <main
-      class="layout__main"
-    />
-  </div>
-</div>
-`;
-
 exports[`Layout Renders without children 1`] = `
 <div>
   <div

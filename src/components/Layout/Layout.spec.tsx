@@ -17,20 +17,4 @@ export default describe("Layout", () => {
 
     expect(container).toMatchSnapshot();
   });
-
-  it("Renders with exampleProp enabled, no children", () => {
-    const { container } = customRender(<Layout exampleProp />);
-
-    expect(container).toMatchSnapshot();
-  });
-
-  it("Renders with exampleProp enabled, children", () => {
-    const { container } = customRender(
-      <Layout exampleProp>
-        <span>Child element</span>
-      </Layout>
-    );
-
-    expect(container).toMatchSnapshot();
-  });
 });

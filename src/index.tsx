@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/castle-wars">
       <App />
     </BrowserRouter>
   </React.StrictMode>,
