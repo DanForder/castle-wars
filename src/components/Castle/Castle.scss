@@ -1,0 +1,21 @@
+.castle {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-end;
+  justify-content: space-evenly;
+
+  &--flipped {
+    flex-direction: row-reverse;
+  }
+
+  .castle__castle-img {
+    height: 100%;
+    max-width: 80%;
+  }
+
+  .castle__fence-img {
+    height: 50%;
+    max-width: 20%;
+  }
+}

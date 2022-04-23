@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useGame } from "../../context/GameContext";
+import Castle from "../Castle/Castle";
 import DisplayName from "../DisplayName/DisplayName";
+import ResourceDisplay from "../ResourceDisplay/ResourceDisplay";
 import "./PlayArea.scss";
 
 const PlayArea = () => {
@@ -18,8 +20,9 @@ const PlayArea = () => {
           name={game.player.name}
           isHighlighted={turn === "player"}
         />
+        <ResourceDisplay />
       </div>
-      <div className="play-area__castle"></div>
+      <Castle color="red" castleHeight={1} fenceHeight={1} />
       <div
         style={{ textAlign: "center", marginTop: "10px" }}
         className="play-area__deck"
@@ -28,12 +31,13 @@ const PlayArea = () => {
           Toggle Turn
         </button>
       </div>
-      <div className="play-area__castle"></div>
+      <Castle isFlipped color="blue" castleHeight={0.35} fenceHeight={0.55} />
       <div className="play-area__resource">
         <DisplayName
           name={game.computer.name}
           isHighlighted={turn === "computer"}
         />
+        <ResourceDisplay />
       </div>
     </div>
   );
