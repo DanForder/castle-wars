@@ -31,7 +31,7 @@ const PlayArea = () => {
           Toggle Turn
         </button>
       </div>
-      <Castle isFlipped color="blue" castleHeight={0.35} fenceHeight={0.55} />
+      <Castle isFlipped color="blue" castleHeight={0.05} fenceHeight={0.02} />
       <div className="play-area__resource">
         <DisplayName
           name={game.computer.name}
