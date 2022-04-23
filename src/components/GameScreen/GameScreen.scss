@@ -7,11 +7,13 @@
   grid-template-columns: 1fr;
   grid-template-rows: 5fr 2fr;
 
-  .game-screen__play-area {
+  .game-screen__world {
     position: relative;
   }
 
   .game-screen__card-area {
+    // z-index set to hide the castle images
+    z-index: 1;
     background: linear-gradient(
       0deg,
       $color-ground-tint-1 0%,

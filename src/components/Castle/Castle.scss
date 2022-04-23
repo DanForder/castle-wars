@@ -1,0 +1,29 @@
+// hide castle ui on mobile
+.castle {
+  display: none;
+
+  overflow: hidden;
+  position: relative;
+  align-items: flex-end;
+  justify-content: space-evenly;
+
+  &--flipped {
+    flex-direction: row-reverse;
+  }
+
+  .castle__castle-img {
+    height: 90%;
+    max-width: 80%;
+  }
+
+  .castle__fence-img {
+    height: 75%;
+    max-width: 20%;
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .castle {
+    display: flex;
+  }
+}

@@ -1,0 +1,66 @@
+.resource-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1rem;
+  gap: 0.5rem;
+
+  .resource-display__card {
+    flex: 1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 0.5rem;
+    max-height: 100px;
+
+    .resource-display__item {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .resource-display__separator {
+      border: 2px dashed transparent;
+      width: 100%;
+    }
+
+    &--bricks {
+      background-color: #fe7756;
+      border: solid 5px #a90101;
+
+      .resource-display__separator {
+        border-color: #a90101;
+      }
+    }
+
+    &--weapons {
+      background-color: #66e357;
+      border: solid 5px #006600;
+
+      .resource-display__separator {
+        border-color: #006600;
+      }
+    }
+
+    &--crystals {
+      background-color: #02b3fd;
+      border: solid 5px #003399;
+
+      .resource-display__separator {
+        border-color: #003399;
+      }
+    }
+
+    &--castle {
+      background-color: #666666;
+      border: solid 5px #000000;
+
+      .resource-display__separator {
+        border-color: #000000;
+      }
+    }
+  }
+}

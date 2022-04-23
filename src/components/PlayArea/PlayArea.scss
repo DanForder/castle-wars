@@ -1,0 +1,16 @@
+.play-area {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .play-area__resource {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .play-area {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}

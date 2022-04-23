@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import PlayerNameProvider from "../context/GameContext";
 
 type CustomRenderOptions = {
   useRouting: boolean;
@@ -21,5 +22,9 @@ export const customRender = (
 };
 
 const wrapWithRouting = (ui: JSX.Element): JSX.Element => {
-  return <BrowserRouter>{ui}</BrowserRouter>;
+  return (
+    <PlayerNameProvider>
+      <BrowserRouter>{ui}</BrowserRouter>
+    </PlayerNameProvider>
+  );
 };
