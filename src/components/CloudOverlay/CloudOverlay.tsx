@@ -15,7 +15,6 @@ const CloudOverlay = () => {
   };
 
   useInstantiateAtInterval(30, addCloud);
-  // useInstantiateAtInterval(3, addCloud);
 
   const generateRandomCloudStyles = () => {
     const [translate, rotate, width] = [

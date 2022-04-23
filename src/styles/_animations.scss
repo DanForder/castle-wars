@@ -1,6 +1,5 @@
 @mixin animate-across {
   animation: across-screen 90s linear;
-  // animation: across-screen 9s linear;
   animation-fill-mode: forwards;
 }
 
