@@ -2,7 +2,7 @@
   "name": "typescript-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://dan-forder.github.io/castle-wars",
+  "homepage": "http://danforder.github.io/castle-wars",
   "dependencies": {
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
