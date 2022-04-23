@@ -1,5 +1,6 @@
 @mixin animate-across {
-  animation: across-screen 60s linear;
+  animation: across-screen 90s linear;
+  // animation: across-screen 9s linear;
   animation-fill-mode: forwards;
 }
 
@@ -8,13 +9,11 @@
     left: 12.5%;
     opacity: 0;
   }
-  5% {
+  1% {
     opacity: 0.5;
   }
-  50% {
-    opacity: 0.75;
-  }
-  95% {
+
+  99% {
     opacity: 0.5;
   }
   100% {
