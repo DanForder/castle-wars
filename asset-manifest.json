@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/castle-wars/static/css/main.a305d1a4.css",
-    "main.js": "/castle-wars/static/js/main.104a9c7e.js",
+    "main.css": "/castle-wars/static/css/main.d41d2755.css",
+    "main.js": "/castle-wars/static/js/main.73b3eb8d.js",
     "static/js/787.edaec025.chunk.js": "/castle-wars/static/js/787.edaec025.chunk.js",
     "static/media/castle-blue.png": "/castle-wars/static/media/castle-blue.3ab1359be9824a12f2f3.png",
     "static/media/castle-red.png": "/castle-wars/static/media/castle-red.d90c204f0c8721fb9de9.png",
@@ -9,12 +9,12 @@
     "static/media/fence-red.png": "/castle-wars/static/media/fence-red.21d16c019e84f35789b5.png",
     "static/media/cloud.png": "/castle-wars/static/media/cloud.3ba1ff4cf78d0bd308f9.png",
     "index.html": "/castle-wars/index.html",
-    "main.a305d1a4.css.map": "/castle-wars/static/css/main.a305d1a4.css.map",
-    "main.104a9c7e.js.map": "/castle-wars/static/js/main.104a9c7e.js.map",
+    "main.d41d2755.css.map": "/castle-wars/static/css/main.d41d2755.css.map",
+    "main.73b3eb8d.js.map": "/castle-wars/static/js/main.73b3eb8d.js.map",
     "787.edaec025.chunk.js.map": "/castle-wars/static/js/787.edaec025.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a305d1a4.css",
-    "static/js/main.104a9c7e.js"
+    "static/css/main.d41d2755.css",
+    "static/js/main.73b3eb8d.js"
   ]
 }
