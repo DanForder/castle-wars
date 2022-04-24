@@ -10,7 +10,7 @@ const ResourceDisplay = () => {
         </div>
         <hr className="resource-display__separator" />
         <div className="resource-display__item">
-          <p>Bricks</p>
+          <p>Bricks 🧱</p>
           <p>5</p>
         </div>
       </div>
@@ -21,7 +21,7 @@ const ResourceDisplay = () => {
         </div>
         <hr className="resource-display__separator" />
         <div className="resource-display__item">
-          <p>Weapons</p>
+          <p>Weapons ⚔️</p>
           <p>5</p>
         </div>
       </div>
@@ -32,7 +32,7 @@ const ResourceDisplay = () => {
         </div>
         <hr className="resource-display__separator" />
         <div className="resource-display__item">
-          <p>Crystals</p>
+          <p>Crystals 🔮</p>
           <p>5</p>
         </div>
       </div>

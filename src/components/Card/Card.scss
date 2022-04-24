@@ -1,0 +1,73 @@
+.card {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  max-width: 110px;
+  max-height: 175px;
+  min-width: 100px;
+  background-color: dodgerblue;
+  grid-template:
+    "cost-type cost-amount" 1fr
+    "name name" 1fr
+    "img img" 2fr
+    "affects affects" 1fr / 1fr 1fr;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &--brick {
+    background-color: #ffa59d;
+    border: solid 5px #ff4848;
+  }
+
+  &--weapon {
+    background-color: #66e357;
+    border: solid 5px #006600;
+  }
+
+  &--crystal {
+    background-color: #02b3fd;
+    border: solid 5px #003399;
+  }
+
+  .card__cost-type {
+    grid-area: cost-type;
+    padding-left: 0.5rem;
+  }
+
+  .card__cost-amount {
+    grid-area: cost-amount;
+    text-align: right;
+    padding-right: 0.5rem;
+    color: black;
+  }
+
+  .card__name {
+    grid-area: name;
+    text-align: center;
+    color: #ff0000;
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .card__img {
+    grid-area: img;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card__affects {
+    grid-area: affects;
+    text-align: center;
+
+    .card__affect-item {
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+
+      > * {
+        color: black;
+      }
+    }
+  }
+}

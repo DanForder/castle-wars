@@ -20,5 +20,9 @@
       $color-ground-tint-2 100%
     );
     border-top: solid 5px $color-ground-tint-1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

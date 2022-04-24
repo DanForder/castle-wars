@@ -1,5 +1,6 @@
 import CloudOverlay from "../CloudOverlay/CloudOverlay";
 import PlayArea from "../PlayArea/PlayArea";
+import PlayerHand from "../PlayerHand/PlayerHand";
 import "./GameScreen.scss";
 
 const GameScreen = () => {
@@ -9,7 +10,9 @@ const GameScreen = () => {
         <CloudOverlay />
         <PlayArea />
       </div>
-      <div className="game-screen__card-area"></div>
+      <div className="game-screen__card-area">
+        <PlayerHand />
+      </div>
     </div>
   );
 };

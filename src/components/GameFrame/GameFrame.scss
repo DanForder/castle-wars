@@ -3,8 +3,7 @@
 .game-frame {
   background-color: $color-frame;
   padding: 2.25rem;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
   display: flex;
 
   .game-frame__heading {
@@ -13,5 +12,11 @@
     text-align: center;
     left: 50%;
     transform: translate(-50%, -95%);
+  }
+}
+
+@media screen and(min-width: $tablet-breakpoint) {
+  .game-frame {
+    height: 100vh;
   }
 }

@@ -1,15 +1,19 @@
+@use "../../styles/variables" as *;
+
 .play-area {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
   .play-area__resource {
+    // z-index to put in front of clouds
+    z-index: 1;
     display: flex;
     flex-direction: column;
   }
 }
 
-@media screen and(min-width: 768px) {
+@media screen and(min-width: $tablet-breakpoint) {
   .play-area {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }

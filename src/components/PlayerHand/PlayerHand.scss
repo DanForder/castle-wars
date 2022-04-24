@@ -1,0 +1,7 @@
+.player-hand {
+  display: grid;
+  padding: 1rem;
+  gap: 0.1rem;
+  grid-template-columns: repeat(8, 1fr);
+  justify-items: center;
+}
