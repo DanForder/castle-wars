@@ -1,18 +1,16 @@
 import classNames from "classnames";
 import { ReactFitty } from "react-fitty";
+import { useGame } from "../../context/GameContext";
 import { CardInfo } from "../../types/CardInfo";
+import { logCard } from "../../utils/cardUtils";
 import "./Card.scss";
 
 type CardProps = CardInfo;
 
-const Card: React.FC<CardProps> = ({
-  id,
-  displayName,
-  costType,
-  costAmount,
-  affects,
-  icon,
-}) => {
+const Card: React.FC<CardProps> = (card) => {
+  const { id, displayName, costType, costAmount, affects, icon } = card;
+  const { affectPlayerResource } = useGame();
+
   const getCostImage = (type: CardInfo["costType"]): string => {
     return {
       brick: "🧱",
@@ -21,10 +19,38 @@ const Card: React.FC<CardProps> = ({
     }[type];
   };
 
+  const handleAffect = ({
+    target,
+    value,
+  }: {
+    target: string;
+    value: number;
+  }) => {
+    if (
+      target === "builders" ||
+      target === "bricks" ||
+      target === "soldiers" ||
+      target === "weapons" ||
+      target === "magic" ||
+      target === "crystals" ||
+      target === "castle" ||
+      target === "fence"
+    ) {
+      affectPlayerResource("player", target, value);
+    }
+  };
+
+  const handleClick = () => {
+    logCard("player", card);
+    card.affects.forEach((affect) => {
+      handleAffect(affect);
+    });
+  };
+
   const className = classNames("card", `card--${costType}`);
 
   return (
-    <div className={className}>
+    <div onClick={handleClick} className={className}>
       <span className="card__cost-type">{getCostImage(costType)}</span>
       <span className="card__cost-amount">{costAmount}</span>
       <span className="card__name">{displayName}</span>

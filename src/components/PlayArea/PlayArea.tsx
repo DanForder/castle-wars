@@ -13,6 +13,20 @@ const PlayArea = () => {
     setTurn((prev) => (prev === "player" ? "computer" : "player"));
   };
 
+  const getCastleHeight = (castleHp: number): number => {
+    const result = castleHp / 100;
+
+    if (result > 1) {
+      return 1;
+    }
+
+    if (result < 0) {
+      return 0;
+    }
+
+    return result;
+  };
+
   return (
     <div className="play-area">
       <div className="play-area__resource">
@@ -20,9 +34,13 @@ const PlayArea = () => {
           name={game.player.name}
           isHighlighted={turn === "player"}
         />
-        <ResourceDisplay />
+        <ResourceDisplay {...game.player.resource} />
       </div>
-      <Castle color="red" castleHeight={1} fenceHeight={1} />
+      <Castle
+        color="red"
+        castleHeight={getCastleHeight(game.player.resource.castle)}
+        fenceHeight={1}
+      />
       <div
         style={{ textAlign: "center", marginTop: "10px" }}
         className="play-area__deck"
@@ -37,7 +55,7 @@ const PlayArea = () => {
           name={game.computer.name}
           isHighlighted={turn === "computer"}
         />
-        <ResourceDisplay />
+        <ResourceDisplay {...game.computer.resource} />
       </div>
     </div>
   );
