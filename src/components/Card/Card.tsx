@@ -8,7 +8,7 @@ import "./Card.scss";
 type CardProps = CardInfo;
 
 const Card: React.FC<CardProps> = (card) => {
-  const { id, displayName, costType, costAmount, affects, icon } = card;
+  const { displayName, costType, costAmount, affects, icon } = card;
   const { affectPlayerResource } = useGame();
 
   const getCostImage = (type: CardInfo["costType"]): string => {
