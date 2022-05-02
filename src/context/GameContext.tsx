@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { getAddBetweenBounds } from "../utils/gameUtils";
 import { initialGame } from "./initialGame";
 
 type GameContextType = {
@@ -7,6 +8,11 @@ type GameContextType = {
   affectPlayerResource: (
     player: keyof Game,
     affected: keyof Resource,
+    amount: number
+  ) => void;
+  affectBuilding: (
+    player: keyof Game,
+    building: "castle" | "fence",
     amount: number
   ) => void;
 };
@@ -72,9 +78,22 @@ const PlayerNameProvider = ({ children }: GameContextProviderProps) => {
     });
   };
 
+  const affectBuilding = (
+    player: keyof Game,
+    building: "castle" | "fence",
+    amount: number
+  ) => {
+    console.log(`affecting ${player} ${building}`);
+
+    const currentCastleHp = game[player].resource[building];
+    const amountToAdd = getAddBetweenBounds(0, 100, currentCastleHp, amount);
+
+    affectPlayerResource(player, building, amountToAdd);
+  };
+
   return (
     <GameContext.Provider
-      value={{ game, updatePlayerName, affectPlayerResource }}
+      value={{ game, updatePlayerName, affectPlayerResource, affectBuilding }}
     >
       {children}
     </GameContext.Provider>

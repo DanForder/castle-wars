@@ -9,7 +9,7 @@ type CardProps = CardInfo;
 
 const Card: React.FC<CardProps> = (card) => {
   const { displayName, costType, costAmount, affects, icon } = card;
-  const { affectPlayerResource } = useGame();
+  const { affectPlayerResource, affectBuilding } = useGame();
 
   const getCostImage = (type: CardInfo["costType"]): string => {
     return {
@@ -26,15 +26,16 @@ const Card: React.FC<CardProps> = (card) => {
     target: string;
     value: number;
   }) => {
+    if (target === "castle" || target === "fence") {
+      affectBuilding("player", target, value);
+    }
     if (
       target === "builders" ||
       target === "bricks" ||
       target === "soldiers" ||
       target === "weapons" ||
       target === "magic" ||
-      target === "crystals" ||
-      target === "castle" ||
-      target === "fence"
+      target === "crystals"
     ) {
       affectPlayerResource("player", target, value);
     }
