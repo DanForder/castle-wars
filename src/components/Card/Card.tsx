@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { ReactFitty } from "react-fitty";
-import { useGame } from "../../context/GameContext";
+import { Game, useGame } from "../../context/GameContext";
 import { CardInfo } from "../../types/CardInfo";
 import { logCard } from "../../utils/cardUtils";
 import "./Card.scss";
@@ -9,7 +9,12 @@ type CardProps = CardInfo;
 
 const Card: React.FC<CardProps> = (card) => {
   const { displayName, costType, costAmount, affects, icon } = card;
-  const { affectPlayerResource, affectBuilding } = useGame();
+  const {
+    affectPlayerResource,
+    affectBuilding,
+    togglePlayerTurn,
+    getActivePlayer,
+  } = useGame();
 
   const getCostImage = (type: CardInfo["costType"]): string => {
     return {
@@ -19,33 +24,37 @@ const Card: React.FC<CardProps> = (card) => {
     }[type];
   };
 
-  const handleAffect = ({
-    target,
-    value,
-  }: {
-    target: string;
-    value: number;
-  }) => {
-    if (target === "castle" || target === "fence") {
-      affectBuilding("player", target, value);
+  const handleAffect = (
+    targetPlayer: keyof Game = "player",
+    targetResource: string,
+    value: number
+  ) => {
+    if (targetResource === "castle" || targetResource === "fence") {
+      affectBuilding(targetPlayer, targetResource, value);
     }
     if (
-      target === "builders" ||
-      target === "bricks" ||
-      target === "soldiers" ||
-      target === "weapons" ||
-      target === "magic" ||
-      target === "crystals"
+      targetResource === "builders" ||
+      targetResource === "bricks" ||
+      targetResource === "soldiers" ||
+      targetResource === "weapons" ||
+      targetResource === "magic" ||
+      targetResource === "crystals"
     ) {
-      affectPlayerResource("player", target, value);
+      affectPlayerResource(targetPlayer, targetResource, value);
     }
   };
 
+  // TODO: check if can play card
+  // TODO: affect enemy for relevant cards
   const handleClick = () => {
-    logCard("player", card);
-    card.affects.forEach((affect) => {
-      handleAffect(affect);
+    const activePlayer = getActivePlayer();
+    logCard(activePlayer, card);
+
+    card.affects.forEach(({ target, value }) => {
+      handleAffect(activePlayer, target, value);
     });
+
+    togglePlayerTurn();
   };
 
   const className = classNames("card", `card--${costType}`);

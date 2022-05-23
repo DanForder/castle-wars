@@ -1,5 +1,6 @@
+import { Game } from "../context/GameContext";
 import { CardInfo } from "../types/CardInfo";
 
-export const logCard = (player: "player" | "computer", card: CardInfo) => {
-  console.log(`${player} played ${card.displayName}`);
+export const logCard = (player: keyof Game, card: CardInfo) => {
+  console.log(`${player} played ${card.displayName}`, card);
 };

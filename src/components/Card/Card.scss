@@ -13,6 +13,7 @@
     "affects affects" 1fr / 1fr 1fr;
   padding: 0.5rem;
   cursor: pointer;
+  user-select: none;
 
   &--brick {
     background-color: #ffa59d;

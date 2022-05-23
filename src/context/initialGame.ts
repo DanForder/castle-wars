@@ -13,6 +13,7 @@ export const initialGame: Game = {
       castle: 50,
       fence: 15,
     },
+    isActive: true,
   },
   computer: {
     name: "Computer",
@@ -26,5 +27,6 @@ export const initialGame: Game = {
       castle: 50,
       fence: 15,
     },
+    isActive: false,
   },
 };

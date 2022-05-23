@@ -11,6 +11,16 @@
     display: flex;
     flex-direction: column;
   }
+
+  .play-area__deck {
+    text-align: center;
+    margin-top: 10px;
+
+    .play-area__button {
+      color: black;
+      padding: 0.25rem;
+    }
+  }
 }
 
 @media screen and(min-width: $tablet-breakpoint) {

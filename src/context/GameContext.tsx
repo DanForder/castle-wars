@@ -4,7 +4,7 @@ import { initialGame } from "./initialGame";
 
 type GameContextType = {
   game: Game;
-  updatePlayerName: (newName: string) => void;
+  updatePlayerName: (player: keyof Game, newName: string) => void;
   affectPlayerResource: (
     player: keyof Game,
     affected: keyof Resource,
@@ -15,6 +15,8 @@ type GameContextType = {
     building: "castle" | "fence",
     amount: number
   ) => void;
+  togglePlayerTurn: () => void;
+  getActivePlayer: () => keyof Game;
 };
 
 type GameContextProviderProps = {
@@ -29,6 +31,7 @@ export type Game = {
 export type Player = {
   name: string;
   resource: Resource;
+  isActive: boolean;
 };
 
 export type Resource = {
@@ -51,12 +54,14 @@ export const useGame = () => {
 const PlayerNameProvider = ({ children }: GameContextProviderProps) => {
   const [game, setGame] = useState<Game>(initialGame);
 
-  const updatePlayerName = (newName: string) => {
+  // updates a single player's name to any new string
+  const updatePlayerName = (player: keyof Game, newName: string) => {
     setGame((prevGame) => {
-      return { ...prevGame, user: { ...prevGame.player, name: newName } };
+      return { ...prevGame, [player]: { ...prevGame[player], name: newName } };
     });
   };
 
+  // updates a player's resource by a positive or negative number
   const affectPlayerResource = (
     player: keyof Game,
     affected: keyof Resource,
@@ -78,6 +83,7 @@ const PlayerNameProvider = ({ children }: GameContextProviderProps) => {
     });
   };
 
+  // updates a player's castle or fence by a positive or negative number (within a bound)
   const affectBuilding = (
     player: keyof Game,
     building: "castle" | "fence",
@@ -91,9 +97,41 @@ const PlayerNameProvider = ({ children }: GameContextProviderProps) => {
     affectPlayerResource(player, building, amountToAdd);
   };
 
+  // inverses both player turn states
+  const togglePlayerTurn = () => {
+    setGame((prevGame) => {
+      const player = {
+        ...prevGame.player,
+        isActive: !prevGame.player.isActive,
+      };
+      const computer = {
+        ...prevGame.computer,
+        isActive: !prevGame.computer.isActive,
+      };
+      return {
+        ...prevGame,
+        player,
+        computer,
+      };
+    });
+  };
+
+  // gets the currently active player key
+  const getActivePlayer = (): keyof Game => {
+    if (game.computer.isActive) return "computer";
+    return "player";
+  };
+
   return (
     <GameContext.Provider
-      value={{ game, updatePlayerName, affectPlayerResource, affectBuilding }}
+      value={{
+        game,
+        updatePlayerName,
+        affectPlayerResource,
+        affectBuilding,
+        togglePlayerTurn,
+        getActivePlayer,
+      }}
     >
       {children}
     </GameContext.Provider>
