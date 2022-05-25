@@ -1,6 +1,9 @@
-import { Game } from "../context/GameContext";
 import { CardInfo } from "../types/CardInfo";
 
-export const logCard = (player: keyof Game, card: CardInfo) => {
-  console.log(`${player} played ${card.displayName}`, card);
+export const getCostImage = (type: CardInfo["costType"]): string => {
+  return {
+    brick: "🧱",
+    weapon: "⚔️",
+    crystal: "🔮",
+  }[type];
 };

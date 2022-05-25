@@ -1,57 +1,33 @@
 import classNames from "classnames";
 import { ReactFitty } from "react-fitty";
-import { Game, useGame } from "../../context/GameContext";
+import { useGame } from "../../context/GameContext";
 import { CardInfo } from "../../types/CardInfo";
-import { logCard } from "../../utils/cardUtils";
+import { getCostImage } from "../../utils/cardUtils";
 import "./Card.scss";
 
 type CardProps = CardInfo;
 
-const Card: React.FC<CardProps> = (card) => {
-  const { displayName, costType, costAmount, affects, icon } = card;
-  const {
-    affectPlayerResource,
-    affectBuilding,
-    togglePlayerTurn,
-    getActivePlayer,
-  } = useGame();
+const Card: React.FC<CardProps> = ({
+  displayName,
+  costType,
+  costAmount,
+  affects,
+  icon,
+}) => {
+  const { togglePlayerTurn, getActivePlayer, affectResource, attemptPlayCard } =
+    useGame();
 
-  const getCostImage = (type: CardInfo["costType"]): string => {
-    return {
-      brick: "🧱",
-      weapon: "⚔️",
-      crystal: "🔮",
-    }[type];
-  };
-
-  const handleAffect = (
-    targetPlayer: keyof Game = "player",
-    targetResource: string,
-    value: number
-  ) => {
-    if (targetResource === "castle" || targetResource === "fence") {
-      affectBuilding(targetPlayer, targetResource, value);
-    }
-    if (
-      targetResource === "builders" ||
-      targetResource === "bricks" ||
-      targetResource === "soldiers" ||
-      targetResource === "weapons" ||
-      targetResource === "magic" ||
-      targetResource === "crystals"
-    ) {
-      affectPlayerResource(targetPlayer, targetResource, value);
-    }
-  };
-
-  // TODO: check if can play card
   // TODO: affect enemy for relevant cards
   const handleClick = () => {
     const activePlayer = getActivePlayer();
-    logCard(activePlayer, card);
+    const canPlayCard = attemptPlayCard(activePlayer, costType, costAmount);
 
-    card.affects.forEach(({ target, value }) => {
-      handleAffect(activePlayer, target, value);
+    // check if the player can afford to play this card
+    if (!canPlayCard) return;
+
+    //the player has now paid for the card so effects can be played
+    affects.forEach(({ target, value }) => {
+      affectResource(activePlayer, target, value);
     });
 
     togglePlayerTurn();
