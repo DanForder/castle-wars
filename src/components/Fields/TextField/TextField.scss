@@ -1,0 +1,11 @@
+@use "../../../styles/variables" as *;
+
+.text-field {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem;
+
+  .text-field__input {
+    color: $color-text-variant;
+  }
+}

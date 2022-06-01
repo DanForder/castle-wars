@@ -12,6 +12,13 @@
     text-align: center;
     left: 50%;
     transform: translate(-50%, -95%);
+
+    .game-frame__settings-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0.5rem;
+    }
   }
 }
 
