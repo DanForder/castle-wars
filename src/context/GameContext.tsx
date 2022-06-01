@@ -52,7 +52,7 @@ export const useGame = () => {
   return useContext(GameContext);
 };
 
-const PlayerNameProvider = ({ children }: GameContextProviderProps) => {
+const GameProvider = ({ children }: GameContextProviderProps) => {
   const [game, setGame] = useState<Game>(initialGame);
 
   ///////////////////////
@@ -185,4 +185,4 @@ const PlayerNameProvider = ({ children }: GameContextProviderProps) => {
   );
 };
 
-export default PlayerNameProvider;
+export default GameProvider;

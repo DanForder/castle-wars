@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import PlayerNameProvider from "../context/GameContext";
+import GameProvider from "../context/GameContext";
 
 type CustomRenderOptions = {
   useRouting: boolean;
@@ -23,8 +23,8 @@ export const customRender = (
 
 const wrapWithRouting = (ui: JSX.Element): JSX.Element => {
   return (
-    <PlayerNameProvider>
+    <GameProvider>
       <BrowserRouter>{ui}</BrowserRouter>
-    </PlayerNameProvider>
+    </GameProvider>
   );
 };
