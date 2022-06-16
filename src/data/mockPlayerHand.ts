@@ -1,5 +1,6 @@
 import { CardInfo } from "../types/CardInfo";
 
+// affects that target the "enemy" always start with "enemy"
 const mockPlayerHand: CardInfo[] = [
   {
     id: 1,
@@ -52,7 +53,7 @@ const mockPlayerHand: CardInfo[] = [
         value: 1,
       },
       {
-        target: "enemies all",
+        target: "enemy all",
         value: -1,
       },
     ],
@@ -65,7 +66,7 @@ const mockPlayerHand: CardInfo[] = [
     costAmount: 4,
     affects: [
       {
-        target: "weapons",
+        target: "weapon",
         value: 8,
       },
     ],
